@@ -5,6 +5,14 @@ PaperMC is an optimized Minecraft server with plugin support (Bukkit, Spigot, Sp
 This image provides a PaperMC server with the Geyser and Floodgate plugins, which allow Bedrock players to join a Java server.
 # Usage
 It is assumed that the user has already acquired a working Docker installation. If that is not the case, go do that and come back here when you're done. [Docker Install Guide](https://docs.docker.com/get-docker/)
+# Building
+As this image isn't available through Docker Hub, you need to build it yourself. This is a very simple process.
+
+```shell
+git clone https://github.com/smcbride-ca/papermc-geyser-docker
+cd papermc-geyser-docker
+docker build -t smcbride/papermc-geyser-floodgate .
+```
 ## Command
 With this image, you can create a new PaperMC Minecraft server with one command (note that running said command indicates agreement to the Minecraft EULA). Here is an example:
 
@@ -47,7 +55,7 @@ The command I would recommend using goes something like this:
 
 ```docker run -p 25565:25565 -p 19132:19132/udp -v /home/minecraft/server:/papermc -d -ti --restart on-faliure -e MC_RAM="4G" -e TZ="America/Toronto" --name "minecraft" --user 1001:1001 smcbride/papermc-geyser-floodgate```
 
-Replace the timezone and uid with the correct values for your system.
+Replace the timezone, uid, and allocated ram with the correct values for your system.
 
 There is one more command line option, but it is a bit special and deserves its own section.
 
@@ -56,6 +64,7 @@ Environment variables are options that are specified in the format `-e <NAME>="<
 - Minecraft Version
   - **Name:** `MC_VERSION`
   - **NOT SUPPORTED WITH GEYSER**
+    - This requires ViaVersion and in certain cases, ViaBackwards/ViaRewind
   - Set this to the Minecraft version that the server should support.
   - Note: there must be a PaperMC release for the specified version of Minecraft.
   - If this is not set, the latest version supported by PaperMC will be used.
