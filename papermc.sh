@@ -43,5 +43,10 @@ then
   JAVA_OPTS="-Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS}"
 fi
 
+# Download Geyser and Floodgate if the remote is newer
+wget -N https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/spigot/target/Geyser-Spigot.jar -P plugins/
+
+wget -N https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/spigot/build/libs/floodgate-spigot.jar -P plugins/
+
 # Start server
 exec java -server ${JAVA_OPTS} -jar ${JAR_NAME} nogui
