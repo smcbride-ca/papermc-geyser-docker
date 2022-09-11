@@ -1,5 +1,5 @@
 # JRE base
-FROM openjdk:16-slim
+FROM openjdk:17-slim
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -19,5 +19,5 @@ CMD ["sh", "./papermc.sh"]
 
 # Container setup
 EXPOSE 25565/tcp
-EXPOSE 25565/udp
+EXPOSE 19132/udp
 VOLUME /papermc
