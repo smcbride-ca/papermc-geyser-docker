@@ -50,10 +50,13 @@ There are several command line options that users may want to specify when utili
 - Name
   - Set this to a name for the container (defaults to a couple of random words).
   - `--name "<my-container-name>"`
+- User
+	- Set the UID of the user that will be running this container. This helps avoid file permission issues.
+	- `--user 1000:1000`
 
 The command I would recommend using goes something like this:
 
-```docker run -p 25565:25565 -p 19132:19132/udp -v /home/minecraft/server:/papermc -d -ti --restart on-faliure -e MC_RAM="4G" -e TZ="America/Toronto" --name "minecraft" --user 1001:1001 smcbride/papermc-geyser-floodgate```
+```docker run -p 25565:25565 -p 19132:19132/udp -v /home/minecraft/server:/papermc -d -ti --restart on-failure -e MC_RAM="4G" -e TZ="America/Toronto" --name "minecraft" --user 1001:1001 smcbride/papermc-geyser-floodgate```
 
 Replace the timezone, uid, and allocated ram with the correct values for your system.
 
