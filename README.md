@@ -3,8 +3,15 @@ This is a Linux Docker image for the PaperMC Minecraft server, GeyserMC, and Flo
 
 PaperMC is an optimized Minecraft server with plugin support (Bukkit, Spigot, Sponge, etc.).
 This image provides a PaperMC server with the Geyser and Floodgate plugins, which allow Bedrock players to join a Java server.
-# Usage
+# Install Docker
 It is assumed that the user has already acquired a working Docker installation. If that is not the case, go do that and come back here when you're done. [Docker Install Guide](https://docs.docker.com/get-docker/)
+
+Docker can also be installed by running the following commands
+```shell
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh --dry-run
+```
+
 # Building
 As this image isn't available through Docker Hub, you need to build it yourself. This is a very simple process.
 
