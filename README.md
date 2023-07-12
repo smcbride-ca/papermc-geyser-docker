@@ -21,6 +21,9 @@ cd papermc-geyser-docker
 docker build -t smcbride/papermc-geyser-floodgate .
 ```
 ## Command
+### Important Note
+*Don't run the following commands as the root user or with root privileges. That isn't needed if docker is set up correctly along with your file permissions. This applies to any command that says `docker run`*
+
 With this image, you can create a new PaperMC Minecraft server with one command (note that running said command indicates agreement to the Minecraft EULA). Here is an example:
 
 ```docker run -p 25565:25565 -p 19132:19132/udp smcbride/papermc-geyser-floodgate```
